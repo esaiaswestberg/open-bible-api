@@ -21,6 +21,12 @@ describe('Open Bible API', () => {
       expect(response.status).toBe(200)
       expect(response.text).toContain('Swagger UI')
     })
+
+    it('should serve dynamic swagger.json', async () => {
+      const response = await request(app).get('/swagger.json').set('Host', 'example.com')
+      expect(response.status).toBe(200)
+      expect(response.body.servers).toEqual([{ url: 'http://example.com' }])
+    })
   })
 
   describe('GET /api/languages', () => {
