@@ -1,6 +1,6 @@
 services:
   open-bible-api:
-    build: .
+    image: ghcr.io/esaiaswestberg/open-bible-api:latest
     ports:
       - "${PORT:-3000}:3000"
     environment:
