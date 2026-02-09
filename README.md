@@ -47,8 +47,9 @@ Run with: `docker-compose up -d`
 ---
 
 ## 📖 Documentation
-The API is fully documented using OpenAPI/Swagger. When the server is running, you can access the interactive documentation at:
-**`http://localhost:3000/api-docs`**
+The API is fully documented using OpenAPI/Swagger.
+- **[Live Documentation](https://esaiaswestberg.github.io/open-bible-api/)** (GitHub Pages)
+- **Local:** `http://localhost:3000/api-docs` (when running locally)
 
 ## 📂 Translation Schema
 The API uses a simple filesystem-based schema for translations. Detailed documentation on the directory structure and metadata requirements will be added soon.
