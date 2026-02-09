@@ -1,0 +1,16 @@
+services:
+  open-bible-api:
+    build: .
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - PORT=3000
+      - TRANSLATIONS_PATH=/app/translations
+      - LOG_LEVEL=info
+      - LOG_FILE_PATH=/app/logs/app.log
+      - CORS_ENABLED=true
+      - CORS_ORIGIN=${CORS_ORIGIN:-*}
+    volumes:
+      - ./translations:/app/translations
+      - ./logs:/app/logs
+    restart: unless-stopped
