@@ -5,13 +5,11 @@
   "type": "module",
   "main": "src/main.ts",
   "scripts": {
-    "watch": "tsc --watch",
-    "dev": "nodemon ./dist/main.js",
-    "build": "tsc"
+    "dev": "bun run --watch ./src/main.ts",
   },
   "keywords": [],
   "authors": [
-    "Esaias Cronelius <esaias@cronelius.se>"
+    "Esaias Westberg <esaias@westbergs.se>"
   ],
   "license": "MIT",
   "devDependencies": {
