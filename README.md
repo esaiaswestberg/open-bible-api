@@ -52,7 +52,53 @@ The API is fully documented using OpenAPI/Swagger.
 - **Local:** `http://localhost:3000/api-docs` (when running locally)
 
 ## 📂 Translation Schema
-The API uses a simple filesystem-based schema for translations. Detailed documentation on the directory structure and metadata requirements will be added soon.
+
+The API uses a transparent filesystem-based storage system. Translations are stored in the `translations/` directory with the following structure:
+
+```text
+translations/
+└── [language]/                 # e.g., 'english'
+    ├── metadata.json           # Language metadata
+    └── [translation]/          # e.g., 'WEB'
+        ├── metadata.json       # Translation metadata
+        └── [book]/             # e.g., 'GEN' (standard 3-letter abbreviation)
+            ├── metadata.json   # Book metadata
+            └── [chapter]/      # e.g., '1'
+                ├── metadata.json
+                └── text.txt    # Verse content (one verse per line)
+```
+
+### 📄 Metadata Requirements
+
+#### **Language** (`translations/[language]/metadata.json`)
+```json
+{ "displayName": "English", "abbreviation": "en" }
+```
+
+#### **Translation** (`translations/[language]/[translation]/metadata.json`)
+```json
+{
+  "name": "World English Bible",
+  "abbreviation": "WEB",
+  "uid": "eng-WEB",
+  "info": "Brief description of the translation..."
+}
+```
+
+#### **Book** (`translations/.../[book]/metadata.json`)
+```json
+{ "name": "Genesis", "abbreviation": "GEN" }
+```
+
+#### **Chapter** (`translations/.../[chapter]/metadata.json`)
+```json
+{ "name": "Genesis 1", "number": 1 }
+```
+
+### 📖 Verse Content (`text.txt`)
+Verses should be placed in `text.txt` inside each chapter folder. **Each verse must be on its own line.** Empty lines are ignored.
+
+---
 
 ## 📜 Included Translations
 Currently includes the **World English Bible (WEB)**, which is in the Public Domain. We welcome Pull Requests for other Public Domain translations!
