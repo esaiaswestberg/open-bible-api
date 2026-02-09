@@ -1,4 +1,5 @@
 import express, { Express } from 'express'
+import cors from 'cors'
 import { pinoHttp } from 'pino-http'
 import swaggerUi from 'swagger-ui-express'
 import useHelmet from '../libs/useHelmet.js'
@@ -26,6 +27,19 @@ export const createApp = (): Express => {
  */
 const addMiddleware = (app: Express): void => {
   app.use(express.json())
+
+  // CORS Configuration
+  if (process.env.CORS_ENABLED !== 'false') {
+    const corsOrigin = process.env.CORS_ORIGIN
+    if (corsOrigin) {
+      app.use(
+        cors({
+          origin: corsOrigin === '*' ? '*' : corsOrigin.split(','),
+        })
+      )
+    }
+  }
+
   app.use(
     pinoHttp({
       logger,
