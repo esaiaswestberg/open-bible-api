@@ -1,4 +1,5 @@
 import Language from '../models/language.js'
+import logger from './logger.js'
 
 const bibleLanguages = new Map<string, Language>()
 
@@ -9,11 +10,11 @@ const bibleLanguages = new Map<string, Language>()
  * @throws {Error} If the translations could not be loaded.
  */
 export const loadTranslations = async (): Promise<typeof bibleLanguages> => {
-  console.log('Loading translations...')
+  logger.info('Loading translations...')
   ;(await Language.loadLanguages()).forEach((language) => bibleLanguages.set(language.abbreviation, language))
 
   const translationCount = Array.from(bibleLanguages.values()).reduce((count, language) => count + language.translations.size, 0)
-  console.log(`Finished loading ${translationCount} translation(s) in ${bibleLanguages.size} language(s)!`)
+  logger.info(`Finished loading ${translationCount} translation(s) in ${bibleLanguages.size} language(s)!`)
 
   return bibleLanguages
 }

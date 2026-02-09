@@ -1,7 +1,9 @@
 import express, { Express } from 'express'
+import { pinoHttp } from 'pino-http'
 import swaggerUi from 'swagger-ui-express'
 import useHelmet from '../libs/useHelmet.js'
 import languagesRotuer from '../routers/languages.js'
+import logger from './logger.js'
 import swaggerSpec from './swagger.js'
 
 /**
@@ -24,6 +26,20 @@ export const createApp = (): Express => {
  */
 const addMiddleware = (app: Express): void => {
   app.use(express.json())
+  app.use(
+    pinoHttp({
+      logger,
+      customSuccessMessage: (req, res, responseTime) =>
+        `${req.method} ${req.originalUrl} ${res.statusCode} (${responseTime}ms) - ${req.socket.remoteAddress}`,
+      customErrorMessage: (req, res, responseTime) =>
+        `${req.method} ${req.originalUrl} ${res.statusCode} (${responseTime}ms) - ${req.socket.remoteAddress}`,
+      // Disable the default req/res logging
+      serializers: {
+        req: () => undefined,
+        res: () => undefined,
+      },
+    })
+  )
   useHelmet(app)
 }
 
@@ -51,6 +67,6 @@ const addRouters = (app: Express): void => {
  */
 export const startApp = (app: Express, port = 3000): void => {
   app.listen(port, () => {
-    console.log(`Listening on port ${port}`)
+    logger.info(`Listening on port ${port}`)
   })
 }
