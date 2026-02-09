@@ -39,15 +39,3 @@ dist/**/*
 
 # ignore yarn.lock
 yarn.lock
-
-# ignore translations
-# ignore all folders under translations/
-# except for translations/english/WEB and all its subfolders and files
-!translations
-
-translations/*
-!translations/english/
-
-translations/english/*
-!translations/english/metadata.json
-!translations/english/WEB
