@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, it } from 'bun:test'
 import request from 'supertest'
-import { createApp } from '../src/services/http'
-import { loadTranslations } from '../src/services/bible'
+import { createApp } from '../src/services/http.js'
+import { loadTranslations } from '../src/services/bible.js'
 
 const app = createApp()
 
