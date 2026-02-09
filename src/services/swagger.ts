@@ -8,12 +8,6 @@ const options: swaggerJsdoc.Options = {
       version: '1.0.0',
       description: 'A simple API for accessing Bible translations.',
     },
-    servers: [
-      {
-        url: 'http://localhost:3000',
-        description: 'Development server',
-      },
-    ],
   },
   apis: ['./src/routes/languages/*.ts', './src/routers/*.ts'], // Path to the API docs
 }

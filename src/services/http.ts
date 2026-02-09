@@ -63,8 +63,18 @@ const addMiddleware = (app: Express): void => {
  * @param {Express} app The express app.
  */
 const addRouters = (app: Express): void => {
+  // Swagger JSON
+  app.get('/swagger.json', (req, res) => {
+    const protocol = req.headers['x-forwarded-proto'] || req.protocol
+    const host = req.get('host')
+    res.json({
+      ...swaggerSpec,
+      servers: [{ url: `${protocol}://${host}` }],
+    })
+  })
+
   // Swagger UI
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(undefined, { swaggerOptions: { url: '/swagger.json' } }))
 
   // Add languages router.
   app.use('/api/languages', languagesRotuer)
