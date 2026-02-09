@@ -1,6 +1,8 @@
 import express, { Express } from 'express'
+import swaggerUi from 'swagger-ui-express'
 import useHelmet from '../libs/useHelmet.js'
 import languagesRotuer from '../routers/languages.js'
+import swaggerSpec from './swagger.js'
 
 /**
  * Create a new instance of the express app
@@ -31,6 +33,9 @@ const addMiddleware = (app: Express): void => {
  * @param {Express} app The express app.
  */
 const addRouters = (app: Express): void => {
+  // Swagger UI
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+
   // Add languages router.
   app.use('/api/languages', languagesRotuer)
 

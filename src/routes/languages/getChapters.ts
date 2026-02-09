@@ -2,10 +2,38 @@ import type { Request, Response } from 'express'
 import bibleLanguages from '../../services/bible.js'
 
 /**
- * GET /:language/translations/:translation/books/:book/chapters
- *
- * @param {Request} req The request object.
- * @param {Response} res The response object.
+ * @openapi
+ * /api/languages/{language}/translations/{translation}/books/{book}/chapters:
+ *   get:
+ *     summary: Retrieve the number of chapters in a book
+ *     parameters:
+ *       - in: path
+ *         name: language
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - in: path
+ *         name: translation
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - in: path
+ *         name: book
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: The number of chapters.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 count:
+ *                   type: integer
+ *       404:
+ *         description: Language, translation, or book not found.
  */
 const getChapters = (req: Request, res: Response): void => {
   const languageParam = req.params.language

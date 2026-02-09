@@ -2,10 +2,59 @@ import type { Request, Response } from 'express'
 import bibleLanguages from '../../services/bible.js'
 
 /**
- * GET /:language/translations/:translation/books/:book/chapters/:chapter/verse/:start-:end
- *
- * @param {Request} req The request object.
- * @param {Response} res The response object.
+ * @openapi
+ * /api/languages/{language}/translations/{translation}/books/{book}/chapters/{chapter}/verses/{start}-{end}:
+ *   get:
+ *     summary: Retrieve a range of verses from a specific chapter
+ *     parameters:
+ *       - in: path
+ *         name: language
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - in: path
+ *         name: translation
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - in: path
+ *         name: book
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - in: path
+ *         name: chapter
+ *         required: true
+ *         schema:
+ *           type: integer
+ *       - in: path
+ *         name: start
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Start verse number
+ *       - in: path
+ *         name: end
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: End verse number
+ *     responses:
+ *       200:
+ *         description: A range of verses.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   number:
+ *                     type: integer
+ *                   text:
+ *                     type: string
+ *       404:
+ *         description: Language, translation, book, chapter, or verse range not found.
  */
 const getVerseRange = (req: Request, res: Response): void => {
   const languageParam = req.params.language

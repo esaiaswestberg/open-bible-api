@@ -2,10 +2,39 @@ import type { Request, Response } from 'express'
 import bibleLanguages from '../../services/bible.js'
 
 /**
- * GET /api/languages/:language/translations/:translation/books
- *
- * @param {Request} req The request object.
- * @param {Response} res The response object.
+ * @openapi
+ * /api/languages/{language}/translations/{translation}/books:
+ *   get:
+ *     summary: Retrieve available books for a specific translation
+ *     parameters:
+ *       - in: path
+ *         name: language
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The language abbreviation (e.g., 'en')
+ *       - in: path
+ *         name: translation
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The translation UID (e.g., 'eng-WEB')
+ *     responses:
+ *       200:
+ *         description: A list of books.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   name:
+ *                     type: string
+ *                   abbreviation:
+ *                     type: string
+ *       404:
+ *         description: Language or translation not found.
  */
 const getBooks = (req: Request, res: Response): void => {
   const languageParam = req.params.language
