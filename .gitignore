@@ -49,4 +49,5 @@ translations/*
 !translations/english/
 
 translations/english/*
+!translations/english/metadata.json
 !translations/english/WEB
