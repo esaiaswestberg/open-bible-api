@@ -19,7 +19,7 @@ class Language {
    * @returns {Promise<Language[]>} Promise that resolves with the loaded languages.
    */
   static async loadLanguages(): Promise<Language[]> {
-    const translationsPath = './translations/'
+    const translationsPath = process.env.TRANSLATIONS_PATH || './translations/'
     const dirEntries = await readdir(translationsPath, { withFileTypes: true })
     const dirs = dirEntries.filter((dirent) => dirent.isDirectory())
     const dirNames = dirs.map((dirent) => dirent.name)
@@ -34,7 +34,8 @@ class Language {
    * @returns {Promise<Language>} Promise that resolves with the loaded language.
    */
   static async loadLanguage(name: string): Promise<Language> {
-    const languagePath = `./translations/${name}`
+    const translationsPath = process.env.TRANSLATIONS_PATH || './translations/'
+    const languagePath = `${translationsPath}/${name}`
     const metadataPath = `${languagePath}/metadata.json`
     const metadata = JSON.parse(await readFile(metadataPath, 'utf-8')) as LanguageMetadata
     const translations = await Translation.loadTranslations(languagePath)

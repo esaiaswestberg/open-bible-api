@@ -65,7 +65,7 @@ const addRouters = (app: Express): void => {
  * @param {Express} app The express app.
  * @param {number} port The port to listen on. Defaults to 3000.
  */
-export const startApp = (app: Express, port = 3000): void => {
+export const startApp = (app: Express, port = Number(process.env.PORT) || 3000): void => {
   app.listen(port, () => {
     logger.info(`Listening on port ${port}`)
   })
