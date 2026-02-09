@@ -51,7 +51,7 @@ class Chapter {
   static async loadVerses(chapterPath: string): Promise<string[]> {
     const textPath = `${chapterPath}/text.txt`
     const text = await readFile(textPath, 'utf-8')
-    return text.split('\n')
+    return text.split('\n').filter((line) => line.trim() !== '')
   }
 }
 
