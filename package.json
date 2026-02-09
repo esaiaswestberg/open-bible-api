@@ -5,7 +5,8 @@
   "type": "module",
   "main": "src/main.ts",
   "scripts": {
-    "dev": "bun run --watch ./src/main.ts"
+    "dev": "bun run --watch ./src/main.ts",
+    "test": "bun test"
   },
   "keywords": [],
   "authors": [
