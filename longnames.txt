@@ -1,0 +1,67 @@
+Acts
+Amos
+Colossians
+Daniel
+Deuteronomy
+Ecclesiastes
+Ephesians
+Esther
+Exodus
+Ezekiel
+Ezra
+Galatians
+Genesis
+Habakkuk
+Haggai
+Hebrews
+Hosea
+I Chronicles
+I Corinthians
+II Chronicles
+II Corinthians
+III John
+II John
+II Kings
+II Peter
+II Samuel
+II Thessalonians
+II Timothy
+I John
+I Kings
+I Peter
+Isaiah
+I Samuel
+I Thessalonians
+I Timothy
+James
+Jeremiah
+Job
+Joel
+John
+Jonah
+Joshua
+Jude
+Judges
+Lamentations
+Leviticus
+Luke
+Malachi
+Mark
+Matthew
+metadata.json
+Micah
+Nahum
+Nehemiah
+Numbers
+Obadiah
+Philemon
+Philippians
+Proverbs
+Psalms
+Revelation of John
+Romans
+Ruth
+Song of Solomon
+Titus
+Zechariah
+Zephaniah
