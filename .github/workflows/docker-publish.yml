@@ -18,6 +18,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /*
+            !translations
+          sparse-checkout-cone-mode: false
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
