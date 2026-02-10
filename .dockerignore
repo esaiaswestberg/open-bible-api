@@ -11,4 +11,3 @@ logs
 Dockerfile
 docker-compose.yml
 README.md
-bun.lock
