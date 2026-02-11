@@ -1,6 +1,6 @@
 export default interface TranslationMetadata {
-  name: string
+  displayName: string
+  alternativeName: string
   abbreviation: string
-  uid: string
-  info: string
+  description: string
 }

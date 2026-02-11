@@ -10,7 +10,7 @@ class Language {
   constructor(metadata: LanguageMetadata, translations: Translation[]) {
     this.displayName = metadata.displayName
     this.abbreviation = metadata.abbreviation
-    this.translations = new Map<string, Translation>(translations.map((translation) => [translation.uid, translation]))
+    this.translations = new Map<string, Translation>(translations.map((translation) => [translation.abbreviation, translation]))
   }
 
   /**

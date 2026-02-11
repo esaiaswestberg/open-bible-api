@@ -44,7 +44,14 @@ const getTranslations = (req: Request, res: Response): void => {
   }
 
   const translations = Array.from(language.translations.values())
-  res.json(translations.map((translation) => ({ name: translation.name, abbreviation: translation.abbreviation, uid: translation.uid, info: translation.info })))
+  res.json(
+    translations.map((translation) => ({
+      displayName: translation.displayName,
+      alternativeName: translation.alternativeName,
+      abbreviation: translation.abbreviation,
+      description: translation.description
+    }))
+  )
 }
 
 export default getTranslations

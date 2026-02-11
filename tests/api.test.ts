@@ -42,14 +42,14 @@ describe('Open Bible API', () => {
 
   describe('GET /api/languages/:lang/translations', () => {
     it('should return translations for a valid language', async () => {
-      const response = await request(app).get('/api/languages/en/translations')
+      const response = await request(app).get('/api/languages/eng/translations')
       expect(response.status).toBe(200)
       expect(Array.isArray(response.body)).toBe(true)
       expect(response.body.length).toBeGreaterThan(0)
     })
 
     it('should be case sensitive for language abbreviation', async () => {
-      const response = await request(app).get('/api/languages/EN/translations')
+      const response = await request(app).get('/api/languages/ENG/translations')
       expect(response.status).toBe(404)
     })
 
@@ -61,57 +61,57 @@ describe('Open Bible API', () => {
 
   describe('GET /api/languages/:lang/translations/:trans/books', () => {
     it('should return books for a valid translation', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books')
+      const response = await request(app).get('/api/languages/eng/translations/web/books')
       expect(response.status).toBe(200)
       expect(Array.isArray(response.body)).toBe(true)
       expect(response.body.some((b: any) => b.abbreviation === 'GEN')).toBe(true)
     })
 
     it('should return 404 for an invalid translation', async () => {
-      const response = await request(app).get('/api/languages/en/translations/invalid/books')
+      const response = await request(app).get('/api/languages/eng/translations/invalid/books')
       expect(response.status).toBe(404)
     })
   })
 
   describe('GET /api/languages/:lang/translations/:trans/books/:book/chapters', () => {
     it('should return chapter count for a valid book', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/GEN/chapters')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/GEN/chapters')
       expect(response.status).toBe(200)
       expect(response.body).toEqual({ count: 50 })
     })
 
     it('should be case sensitive for book abbreviation', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/gen/chapters')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/gen/chapters')
       expect(response.status).toBe(404)
     })
 
     it('should return 404 for an invalid book', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/INVALID/chapters')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/INVALID/chapters')
       expect(response.status).toBe(404)
     })
   })
 
   describe('GET /api/languages/:lang/translations/:trans/books/:book/chapters/:chapter/verses', () => {
     it('should return verse count for a valid chapter', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/GEN/chapters/1/verses')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/GEN/chapters/1/verses')
       expect(response.status).toBe(200)
       expect(response.body).toEqual({ count: 31 })
     })
 
     it('should return 404 for an invalid chapter', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/GEN/chapters/999/verses')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/GEN/chapters/999/verses')
       expect(response.status).toBe(404)
     })
 
     it('should return 404 for non-numeric chapter', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/GEN/chapters/abc/verses')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/GEN/chapters/abc/verses')
       expect(response.status).toBe(404)
     })
   })
 
   describe('GET /api/languages/:lang/translations/:trans/books/:book/chapters/:chapter/verses/:verse', () => {
     it('should return a single verse', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/GEN/chapters/1/verses/1')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/GEN/chapters/1/verses/1')
       expect(response.status).toBe(200)
       expect(response.body).toEqual({
         number: 1,
@@ -120,19 +120,19 @@ describe('Open Bible API', () => {
     })
 
     it('should return 404 for an invalid verse', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/GEN/chapters/1/verses/999')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/GEN/chapters/1/verses/999')
       expect(response.status).toBe(404)
     })
 
     it('should return 404 for verse 0', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/GEN/chapters/1/verses/0')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/GEN/chapters/1/verses/0')
       expect(response.status).toBe(404)
     })
   })
 
   describe('GET /api/languages/:lang/translations/:trans/books/:book/chapters/:chapter/verses/:from-:to', () => {
     it('should return a range of verses', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/GEN/chapters/1/verses/1-2')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/GEN/chapters/1/verses/1-2')
       expect(response.status).toBe(200)
       expect(response.body).toHaveLength(2)
       expect(response.body[0].number).toBe(1)
@@ -140,19 +140,19 @@ describe('Open Bible API', () => {
     })
 
     it('should return empty array if range is out of bounds (start too high)', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/GEN/chapters/1/verses/100-110')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/GEN/chapters/1/verses/100-110')
       expect(response.status).toBe(200)
       expect(response.body).toEqual([])
     })
 
     it('should return partial range if end is out of bounds', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/GEN/chapters/1/verses/30-35')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/GEN/chapters/1/verses/30-35')
       expect(response.status).toBe(200)
       expect(response.body.length).toBe(2) // 30 and 31
     })
 
     it('should return a single verse if from equals to', async () => {
-      const response = await request(app).get('/api/languages/en/translations/eng-WEB/books/GEN/chapters/1/verses/5-5')
+      const response = await request(app).get('/api/languages/eng/translations/web/books/GEN/chapters/1/verses/5-5')
       expect(response.status).toBe(200)
       expect(response.body).toHaveLength(1)
       expect(response.body[0].number).toBe(5)

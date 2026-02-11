@@ -3,17 +3,17 @@ import type TranslationMetadata from '../types/TranslationMetadata.d'
 import Book from './book.js'
 
 class Translation {
-  name: string
+  displayName: string
+  alternativeName: string
   abbreviation: string
-  uid: string
-  info: string
+  description: string
   books: Map<string, Book>
 
   constructor(metadata: TranslationMetadata, books: Book[]) {
-    this.name = metadata.name
+    this.displayName = metadata.displayName
+    this.alternativeName = metadata.alternativeName
     this.abbreviation = metadata.abbreviation
-    this.uid = metadata.uid
-    this.info = metadata.info
+    this.description = metadata.description
     this.books = new Map<string, Book>(books.map((book) => [book.abbreviation, book]))
   }
 
