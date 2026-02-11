@@ -1,0 +1,30 @@
+{39:4} Tiedätkö sinä vuorikauristen poikimisajat, valvotko peurojen synnytyskipuja?
+{39:5} Lasketko, milloin niiden kuukaudet täyttyvät, ja tiedätkö ajan, milloin ne poikivat?
+{39:6} Ne painautuvat maahan, saavat ilmoille sikiönsä ja vapautuvat synnytystuskistaan.
+{39:7} Niiden vasikat vahvistuvat, kasvavat kedolla; ne lähtevät tiehensä eivätkä enää palaja.
+{39:8} Kuka on laskenut villiaasin vapaaksi, kuka irroittanut metsäaasin siteet,
+{39:9} sen, jolle minä annoin aavikon asunnoksi ja suola-aron asuinsijaksi?
+{39:10} Se nauraa kaupungin kohinalle, ajajan huutoa se ei kuule;
+{39:11} se tähystelee vuorilta laiduntansa ja etsii kaikkea vihantaa.
+{39:12} Taipuuko villihärkä sinua palvelemaan, ja yöpyykö se sinun seimesi ääreen?
+{39:13} Voitko ohjaksilla pakottaa villihärän vaolle, tahi äestääkö se laaksonpohjia sinua seuraten?
+{39:14} Voitko siihen luottaa, siksi että sen voima on suuri, voitko jättää sen haltuun työsi hedelmät?
+{39:15} Voitko uskoa, että se palajaa ja kokoaa viljasi sinun puimatantereellesi?
+{39:16} Kamelikurjen siipi lepattaa iloisesti, mutta asuuko sen sulissa ja höyhenissä haikaran hellyys?
+{39:17} Se jättää munansa maahan, hiekalle helteen haudottaviksi.
+{39:18} Ei se ajattele, että jalka voi ne särkeä ja metsän eläimet polkea ne rikki.
+{39:19} Se on tyly poikasilleen, niinkuin ne eivät olisikaan sen omia; hukkaan menee sen vaiva, mutta ei se sitä pelkää.
+{39:20} Sillä Jumala on jättänyt sen viisautta vaille ja tehnyt sen ymmärryksestä osattomaksi.
+{39:21} Kun se kiitää ilmaa piesten, nauraa se hevoselle ja ratsumiehelle.
+{39:22} Sinäkö annat hevoselle voiman, puetat sen kaulan liehuvalla harjalla?
+{39:23} Sinäkö panet sen hyppimään kuin heinäsirkan? Sen uljas korskunta on peljättävä.
+{39:24} Se kuopii lakeutta ja iloitsee, lähtee voimalla asevarustuksia vastaan.
+{39:25} Se nauraa pelolle, ei säiky eikä väisty miekan edestä.
+{39:26} Sen yllä kalisee viini, välkähtää keihäs ja peitsi.
+{39:27} Käy jyrinä ja jytinä, kun se laukaten taivalta ahmii; ei mikään sitä pidätä sotatorven pauhatessa.
+{39:28} Milloin ikinä sotatorvi soi, hirnuu se: iihaha! Jo kaukaa se vainuaa taistelun, päälliköiden jylisevän äänen ja sotahuudon.
+{39:29} Sinunko ymmärryksesi voimasta jalohaukka kohoaa korkealle, levittää siipensä kohti etelää?
+{39:30} Tahi sinunko käskystäsi kotka lentää ylhäälle ja tekee pesänsä korkeuteen?
+{39:31} Kalliolla se asuu ja yöpyy, kallion kärjellä, vuorilinnassaan.
+{39:32} Sieltä se tähystelee saalista; kauas katsovat sen silmät.
+{39:33} Sen poikaset särpivät verta, ja missä on kaatuneita, siellä on sekin."
